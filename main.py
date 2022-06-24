@@ -1,11 +1,11 @@
+"""csgo-ping-tester-redux-v0.0.1-dev"""
+
+from io import open
 import json
 import requests
-from io import open
-
 # from multiping import multi_ping
 # from multiping import MultiPing
 
-'''csgo-ping-tester-redux-v0.0.1'''
 if __name__ == "__main__":
 
     datagram_response = requests.get("https://tinyurl.com/steamdatagram").json()
@@ -31,7 +31,10 @@ if "typical_pings" in datagram_response:
 with open('datagram.json', mode='w', encoding="json") as json_datagram_dump:
     json.dump(datagram_response, json_datagram_dump)
 
-'''Dumps the json data from the tinyurl var and then opens the .json file for reading'''
+"""
+the if loops above remove unwanted dict keys from the datagram_response, 
+the first with loop will open and dump the datagram_response in .json encoding.
+"""
 
 
 def print_datagram():
