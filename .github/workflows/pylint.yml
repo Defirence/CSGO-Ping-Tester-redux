@@ -1,12 +1,14 @@
 on:
   push:
     branches:
-      - 'main'
+#      - 'main'
       - 'dev'
+
+name: pylint
 
 jobs:
   pylint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: clone-branch
         run: |
@@ -18,7 +20,7 @@ jobs:
           ls -lah
           echo $PWD
           sleep 1
-      - name: run-pylint-checks
+      - name: run-pylint-check
         run: |
           printf "Running pylint checks against script..."
           ls -lah
