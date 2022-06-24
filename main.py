@@ -31,13 +31,9 @@ if "typical_pings" in datagram_response:
 with open('datagram.json', mode='w', encoding="json") as json_datagram_dump:
     json.dump(datagram_response, json_datagram_dump)
 
-"""
-the if loops above remove unwanted dict keys from the datagram_response, 
-the first with loop will open and dump the datagram_response in .json encoding.
-"""
-
 
 def print_datagram():
+    """"dumps and then opens the datagram json"""
     with open('datagram.json', mode='r', encoding="json") as json_datagram:
         load_datagram = json.load(json_datagram)
     print(json.dumps(load_datagram, indent=4))
