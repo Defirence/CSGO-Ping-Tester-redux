@@ -1,5 +1,11 @@
-name: pull-datagram
-on: [push]
+name: pull-datagram-and-run-pylint
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'dev'
+
 jobs:
   pull-latest-datagram-pylint:
     runs-on: ubuntu-22.04
