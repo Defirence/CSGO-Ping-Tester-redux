@@ -1,5 +1,3 @@
-name: pull-datagram-and-run-pylint
-
 on:
   push:
     branches:
