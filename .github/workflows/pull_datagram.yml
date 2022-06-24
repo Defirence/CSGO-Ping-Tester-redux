@@ -9,18 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: clone-branch
-        run: git clone https://github.com/Defirence/CSGO-Ping-Tester-redux.git
-      - name: run-pylint-checks
         run: |
-          echo "List and change into repo dir on runner..."
+          git clone -b dev https://github.com/Defirence/CSGO-Ping-Tester-redux.git
+          printf "List files and cd into repo dir on runner..."
           ls -lah
+          sleep 1
           cd CSGO-Ping-Tester-redux
           ls -lah
-          echo "Update packages and install Python3..."
-          apt-get update -y
-          apt-get upgrade -y
-          apt-get dist-upgrade -y
-          apt-get full-upgrade -y
-          apt-get install python3 python3-pip -y
-          echo "Running pylint checks against script..."
+          echo $PWD
+          sleep 1
+      - name: run-pylint-checks
+        run: |
+          printf "Running pylint checks against script..."
           pip install -r requirements.txt ; --exit-zero ./main.py
+          printf "Done running pylint checks, exiting ..."
