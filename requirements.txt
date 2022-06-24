@@ -21,7 +21,8 @@ pytest==7.1.2
 pytest-cache==1.0
 pytest-subtests==0.8.0
 requests==2.27.1
-Sublist3r==1.0
+six==1.16.0
+toml==0.10.2
 tomli==2.0.1
 tomlkit==0.11.0
 typing-extensions==4.2.0
