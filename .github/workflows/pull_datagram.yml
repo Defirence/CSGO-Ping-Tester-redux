@@ -24,5 +24,5 @@ jobs:
           ls -lah
           echo $PWD
           cd CSGO-Ping-Tester-redux
-          pip install -r ./requirements.txt ; --exit-zero ./main.py
+          pip install -r ./requirements.txt ; pylint --exit-zero ./main.py
           printf "Done running pylint checks, exiting ..."
