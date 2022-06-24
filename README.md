@@ -5,6 +5,7 @@
 This is the dev branch, which tracks active development.
 
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint) [![.github/workflows/pylint.yml](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml/badge.svg?branch=dev)](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml)
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint) [![.github/workflows/pylint.yml](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml/badge.svg?branch=main)](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml)
 
 requirements.txt - Contains all the `pip` packages needed to build + run the project.
 
