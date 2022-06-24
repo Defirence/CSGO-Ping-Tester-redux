@@ -1,0 +1,13 @@
+name: pull-datagram
+on: [push]
+jobs:
+  pull-latest-datagram-pylint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: clone-dev-branch
+      - uses: actions/checkout@v3
+        run: git clone -b dev https://github.com/Defirence/CSGO-Ping-Tester-redux.git
+      - name: pylint-check-linting
+        run: | 
+          echo "Installing requirements and running pylint checks..."
+          pip install -r requirements.txt ; pylint --exit-zero ./main.py
