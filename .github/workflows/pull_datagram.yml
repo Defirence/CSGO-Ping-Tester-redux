@@ -13,4 +13,5 @@ jobs:
       - name: run-pylint-checks
         run: |
           echo "Running pylint checks against script..."
+          ls -lah && cd CSGO-Ping-Tester-redux
           pip install -r requirements.txt ; --exit-zero ./main.py
