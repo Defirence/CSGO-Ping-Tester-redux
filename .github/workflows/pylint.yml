@@ -1,0 +1,30 @@
+on:
+  push:
+    branches:
+#      - 'main'
+      - 'dev'
+
+name: pylint
+
+jobs:
+  pylint:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: clone-branch
+        run: |
+          git clone -b dev https://github.com/Defirence/CSGO-Ping-Tester-redux.git
+          printf "List files and cd into repo dir on runner..."
+          ls -lah
+          sleep 1
+          cd CSGO-Ping-Tester-redux
+          ls -lah
+          echo $PWD
+          sleep 1
+      - name: run-pylint-check
+        run: |
+          printf "Running pylint checks against script..."
+          ls -lah
+          echo $PWD
+          cd CSGO-Ping-Tester-redux
+          pip install -r ./requirements.txt ; pylint --exit-zero ./main.py
+          printf "Done running pylint checks, exiting ..."
