@@ -2,6 +2,7 @@
 
 ### A re-written version of CSGO-Ping-Tester
 
+[![renovate: enabled](https://img.shields.io/badge/renovate-enabled-green)](https://github.com/Defirence/CSGO-Ping-Tester-redux/blob/main/renovate.json)
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 [![.github/workflows/pylint.yml](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml/badge.svg?branch=dev)](https://github.com/Defirence/CSGO-Ping-Tester-redux/actions/workflows/pylint.yml)
 
