@@ -89,4 +89,8 @@ fabric.properties
 !.idea/codeStyles
 !.idea/runConfigurations
 
+# Test Data/Modules Cruft
+./test_pop.py
+./test_sample.py
+
 # End of https://www.toptal.com/developers/gitignore/api/pycharm+all

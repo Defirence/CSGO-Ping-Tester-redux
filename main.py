@@ -1,43 +1,46 @@
-"""csgo-ping-tester-redux-v0.0.1-dev"""
+"""csgo-ping-tester-redux-v0.0.2-dev"""
 
+import sys
 from io import open
 import json
 import requests
-# from multiping import multi_ping
-# from multiping import MultiPing
 
 if __name__ == "__main__":
 
     datagram_response = requests.get("https://tinyurl.com/steamdatagram").json()
+    if datagram_response == 200:
+        datagram_response.close()
+# TODO: Implement a better error handing function.
+#    else:
+#        print("Error retrieving datagram from specified URL...")
+#        sys.exit(1)
+# FIXME: Implement a better class for different keywords and methods.
+keywords = [
+    "revision", "certs", "p2p_share_ip",
+    "revoked_keys", "relay_public_key", "typical_pings"
+]
 
-if datagram_response == 0:
-    datagram_response.close()
+for x in keywords:
+    if x in keywords:
+        del datagram_response[x]
 
-if "certs" in datagram_response:
-    del datagram_response["certs"]
-
-if "p2p_share_ip" in datagram_response:
-    del datagram_response["p2p_share_ip"]
-
-if "revoked_keys" in datagram_response:
-    del datagram_response["revoked_keys"]
-
-if "relay_public_key" in datagram_response:
-    del datagram_response["relay_public_key"]
-
-if "typical_pings" in datagram_response:
-    del datagram_response["typical_pings"]
-
-with open('datagram.json', mode='w', encoding="json") as json_datagram_dump:
+# FIXME: Using open without explicit json encoding.
+with open('datagram.json', mode='w') as json_datagram_dump:
     json.dump(datagram_response, json_datagram_dump)
 
 
 def print_datagram():
-    """"dumps and then opens the datagram json"""
-    with open('datagram.json', mode='r', encoding="json") as json_datagram:
+    # TODO: Missing function docstring, I really don't care less about docstrings.
+    with open('datagram.json', mode='r', encoding='json') as json_datagram:
         load_datagram = json.load(json_datagram)
     print(json.dumps(load_datagram, indent=4))
 
 
-print("Updated datagram...\n")
-print(datagram_response)
+for key, value in datagram_response.items():
+    print(f'{key} : {value}')
+
+# FIXME: Print the entire json response, but only values needed.
+# print(datagram_response)
+print("\nPulled updated datagram response successfully...")
+
+sys.exit(0)
