@@ -19,13 +19,7 @@ elif datagram_response != 200:
 elif datagram_response is None:
     print(f"Error: NoneType was returned in the response.{sys.exit(1)}")
 
-# TODO: Implement HTTPS verification and force TLS.
-
-# TODO: Implement a better error handing function.
-#    else:
-#        print("Error retrieving datagram from specified URL...")
-#        sys.exit(1)
-# FIXME: Implement a better class for different keywords and methods.
+# TODO: Implement a better class for different keywords and methods.
 keywords = [
     "revision", "certs", "p2p_share_ip",
     "revoked_keys", "relay_public_key", "typical_pings"
