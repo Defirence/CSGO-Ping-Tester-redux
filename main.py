@@ -1,15 +1,26 @@
 """csgo-ping-tester-redux-v0.0.2-dev"""
 
+import json
 import sys
 from io import open
-import json
+
 import requests
+
+datagram_response = requests.get('https://tinyurl.com/steamdatagram').json()
 
 if __name__ == "__main__":
 
-    datagram_response = requests.get("https://tinyurl.com/steamdatagram").json()
+    datagram_response: requests.get('https://tinyurl.com/steamdatagram', verify=True, allow_redirects=True, timeout=60)
     if datagram_response == 200:
         datagram_response.close()
+elif datagram_response != 200:
+    datagram_response.close()
+    print(f"Error: Response code did not return a 200 status code.{sys.exit(1)}")
+elif datagram_response is None:
+    print(f"Error: NoneType was returned in the response.{sys.exit(1)}")
+
+# TODO: Implement HTTPS verification and force TLS.
+
 # TODO: Implement a better error handing function.
 #    else:
 #        print("Error retrieving datagram from specified URL...")
@@ -24,13 +35,12 @@ for x in keywords:
     if x in keywords:
         del datagram_response[x]
 
-# FIXME: Using open without explicit json encoding.
-with open('datagram.json', mode='w') as json_datagram_dump:
+with open('datagram.json', mode='w', encoding='utf-8') as json_datagram_dump:
     json.dump(datagram_response, json_datagram_dump)
 
 
 def print_datagram():
-    # TODO: Missing function docstring, I really don't care less about docstrings.
+    """Opens the datagram response in json encoding"""
     with open('datagram.json', mode='r', encoding='json') as json_datagram:
         load_datagram = json.load(json_datagram)
     print(json.dumps(load_datagram, indent=4))
@@ -39,7 +49,6 @@ def print_datagram():
 for key, value in datagram_response.items():
     print(f'{key} : {value}')
 
-# FIXME: Print the entire json response, but only values needed.
 # print(datagram_response)
 print("\nPulled updated datagram response successfully...")
 
