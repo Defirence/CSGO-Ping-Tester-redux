@@ -1,4 +1,4 @@
-"""csgo-ping-tester-redux-v0.0.2-dev"""
+"""csgo-ping-tester-redux-v0.0.3-dev"""
 
 import json
 import sys
@@ -9,7 +9,6 @@ import requests
 datagram_response = requests.get('https://tinyurl.com/steamdatagram').json()
 
 if __name__ == "__main__":
-
     datagram_response: requests.get('https://tinyurl.com/steamdatagram', verify=True, allow_redirects=True, timeout=60)
     if datagram_response == 200:
         datagram_response.close()
@@ -19,7 +18,6 @@ elif datagram_response != 200:
 elif datagram_response is None:
     print(f"Error: NoneType was returned in the response.{sys.exit(1)}")
 
-# TODO: Implement a better class for different keywords and methods.
 keywords = [
     "revision", "certs", "p2p_share_ip",
     "revoked_keys", "relay_public_key", "typical_pings"
@@ -43,7 +41,7 @@ def print_datagram():
 for key, value in datagram_response.items():
     print(f'{key} : {value}')
 
-# print(datagram_response)
+print(datagram_response.items())
 print("\nPulled updated datagram response successfully...")
 
 sys.exit(0)
