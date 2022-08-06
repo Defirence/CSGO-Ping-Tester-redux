@@ -9,12 +9,17 @@ import requests
 datagram_response = requests.get('https://tinyurl.com/steamdatagram').json()
 
 if __name__ == "__main__":
-    datagram_response: requests.get('https://tinyurl.com/steamdatagram', verify=True, allow_redirects=True, timeout=60)
+    datagram_response: requests.get('https://tinyurl.com/steamdatagram',
+                                    verify=True,
+                                    allow_redirects=True,
+                                    timeout=30)
     if datagram_response == 200:
         datagram_response.close()
+
 elif datagram_response != 200:
     datagram_response.close()
     print(f"Error: Response code did not return a 200 status code.{sys.exit(1)}")
+
 elif datagram_response is None:
     print(f"Error: NoneType was returned in the response.{sys.exit(1)}")
 
