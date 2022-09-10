@@ -1,12 +1,12 @@
 """csgo-ping-tester-redux-v0.0.3-dev"""
 
-import json
 import sys
+import json
 from io import open
-
+from pprint import pprint
 import requests
 
-datagram_response = requests.get('https://tinyurl.com/steamdatagram').json()
+datagram_response = requests.get('https://tinyurl.com/steamdatagram', timeout=30).json()
 
 if __name__ == "__main__":
     datagram_response: requests.get('https://tinyurl.com/steamdatagram',
@@ -46,7 +46,4 @@ def print_datagram():
 for key, value in datagram_response.items():
     print(f'{key} : {value}')
 
-print(datagram_response.items())
-print("\nPulled updated datagram response successfully...")
-
-sys.exit(0)
+pprint(datagram_response)
