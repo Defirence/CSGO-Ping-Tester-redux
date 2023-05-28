@@ -15,7 +15,7 @@ platformdirs==2.6.2
 pluggy==1.0.0
 pylint==2.17.4
 pyparsing==3.0.9
-pytest==7.2.1
+pytest==7.3.1
 pytest-subtests==0.11.0
 requests==2.31.0
 six==1.16.0
