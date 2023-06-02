@@ -22,6 +22,6 @@ six==1.16.0
 toml==0.10.2
 tomli==2.0.1
 tomlkit==0.11.8
-typing-extensions==4.6.2
+typing-extensions==4.6.3
 urllib3==1.26.16
 wrapt==1.15.0
