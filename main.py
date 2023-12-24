@@ -47,3 +47,16 @@ for key, value in datagram_response.items():
     print(f'{key} : {value}')
 
 pprint(datagram_response)
+
+
+def get_attribute(geo_zone, attribute_key):
+    with open('datagram.json', mode='r', encoding='utf-8') as json_datagram:
+        load_datagram: dict = json.load(json_datagram)
+    if geo_zone in load_datagram["pops"].keys() and attribute_key in load_datagram["pops"][geo_zone]:
+        print(f'geo_zone : {geo_zone}, {attribute_key} : {load_datagram["pops"][geo_zone][attribute_key]}')
+        return load_datagram["pops"][geo_zone][attribute_key].strip()
+    else:
+        print("Error with key value input")
+        return None
+
+
