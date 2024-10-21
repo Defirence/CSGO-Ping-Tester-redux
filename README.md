@@ -1,4 +1,6 @@
-# CSGO-Ping-Tester-redux
+# DEPRECATED: CSGO-Ping-Tester-redux
+
+### Valve no longer provides a public-facing .json file with relay addresses to different regions since CS2 was released, therefore this project is useleess.
 
 ### A re-written version of CSGO-Ping-Tester
 
