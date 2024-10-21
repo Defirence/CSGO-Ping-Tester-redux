@@ -1,4 +1,4 @@
-"""csgo-ping-tester-redux-v0.0.3-dev"""
+"""csgo-ping-tester-redux-v0.0.4-dev-final"""
 
 import sys
 import json
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     datagram_response: requests.get('https://tinyurl.com/steamdatagram',
                                     verify=True,
                                     allow_redirects=True,
-                                    timeout=30)
+                                    timeout=30) # type: ignore
     if datagram_response == 200:
         datagram_response.close()
 
